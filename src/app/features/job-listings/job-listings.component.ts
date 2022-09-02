@@ -24,8 +24,8 @@ export const selectJobsViewModel = () => {
 @Component({
   selector: 'app-job-listings',
   template: `
-    <nav class="navbar navbar-dark bg-dark mb-4">
-      <div class="container-fluid">
+    <nav class="navbar navbar-dark bg-primary mb-4 p-0">
+      <div class="container-fluid job-listings-navbar-bg">
         <span class="navbar-brand mb-0 h1">&nbsp;</span>
       </div>
     </nav>
@@ -33,7 +33,7 @@ export const selectJobsViewModel = () => {
       <div *ngIf="vm.filters.length !== 0" class="d-flex p-3 mb-4 bg-white border">
         <div class="flew-wrap flex-fill">
           <span
-            class="badge bg-secondary fs-6 m-2 cursor-pointer"
+            class="badge bg-secondary text-primary hover-bg-primary hover-text-white fs-6 m-2 cursor-pointer"
             *ngFor="let filter of vm.filters"
             (click)="onRemoveJobFilter(filter)"
             >{{ filter }} <i class="bi bi-x-lg ms-1"></i
@@ -45,7 +45,10 @@ export const selectJobsViewModel = () => {
         </div>
       </div>
 
-      <div class="card mb-4" *ngFor="let job of vm.jobs">
+      <div
+        class="card border border-5 border-top-0 border-end-0 border-bottom-0 border-white hover-border-primary mb-4"
+        *ngFor="let job of vm.jobs"
+      >
         <div class="row g-0">
           <div class="col-md-2 d-flex justify-content-center align-items-center">
             <img [src]="job.logo" [alt]="job.company" class="" />
@@ -63,22 +66,28 @@ export const selectJobsViewModel = () => {
               </div>
               <div class="row">
                 <div class="col-md-6 pb-4 pb-md-0">
-                  <h4 class="card-text">{{ job.position }}</h4>
-                  <p class="card-text text-secondary">{{ job.postedAt }} * {{ job.contract }} * {{ job.location }}</p>
+                  <h4 class="card-text hover-text-primary cursor-pointer">
+                    {{ job.position }}
+                  </h4>
+                  <p class="card-text text-light">
+                    {{ job.postedAt }} &#x2022; {{ job.contract }} &#x2022; {{ job.location }}
+                  </p>
                 </div>
                 <div class="col-md-6">
                   <div class="flew-wrap">
-                    <span class="badge bg-secondary cursor-pointer fs-6 me-2 mb-2" (click)="onAddJobFilter(job.role)">{{
-                      job.role
-                    }}</span>
                     <span
-                      class="badge bg-secondary cursor-pointer fs-6 me-2 mb-2"
+                      class="badge bg-secondary text-primary cursor-pointer hover-bg-primary hover-text-white fs-6 me-2 mb-2"
+                      (click)="onAddJobFilter(job.role)"
+                      >{{ job.role }}</span
+                    >
+                    <span
+                      class="badge bg-secondary text-primary cursor-pointer hover-bg-primary hover-text-white fs-6 me-2 mb-2"
                       *ngFor="let language of job.languages"
                       (click)="onAddJobFilter(language)"
                       >{{ language }}</span
                     >
                     <span
-                      class="badge bg-secondary cursor-pointer fs-6 me-2 mb-2"
+                      class="badge bg-secondary text-primary cursor-pointer hover-bg-primary hover-text-white fs-6 me-2 mb-2"
                       *ngFor="let tool of job.tools"
                       (click)="onAddJobFilter(tool)"
                       >{{ tool }}</span

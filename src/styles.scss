@@ -1,5 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
+$primary: #5ca5a5;
+$secondary: #effafa;
+
+$dark: #2b3939;
+$light: #7c8f8f;
+
+$body-bg: $secondary;
+$body-color: $dark;
+
 @import '~bootstrap/scss/bootstrap';
 @import '~bootstrap-icons/font/bootstrap-icons';
 
@@ -10,9 +19,37 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
-  background-color: #effafa;
+}
+
+.job-listings-navbar-bg {
+  background-image: url('./assets//images/bg-header-desktop.svg');
+  height: 156px;
 }
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.hover-text-primary {
+  &:hover {
+    color: $primary !important;
+  }
+}
+
+.hover-text-white {
+  &:hover {
+    color: $white !important;
+  }
+}
+
+.hover-bg-primary {
+  &:hover {
+    background-color: $primary !important;
+  }
+}
+
+.hover-border-primary {
+  &:hover {
+    border-color: $primary !important;
+  }
 }
