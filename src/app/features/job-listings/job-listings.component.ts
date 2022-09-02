@@ -82,6 +82,11 @@ export const selectJobsViewModel = () => {
                     >
                     <span
                       class="badge bg-secondary text-primary cursor-pointer hover-bg-primary hover-text-white fs-6 me-2 mb-2"
+                      (click)="onAddJobFilter(job.level)"
+                      >{{ job.level }}</span
+                    >
+                    <span
+                      class="badge bg-secondary text-primary cursor-pointer hover-bg-primary hover-text-white fs-6 me-2 mb-2"
                       *ngFor="let language of job.languages"
                       (click)="onAddJobFilter(language)"
                       >{{ language }}</span

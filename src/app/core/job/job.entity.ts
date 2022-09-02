@@ -33,7 +33,7 @@ export const filterJobs = (jobs: Job[], filters: string[]): Job[] => {
     return jobs;
   }
   return jobs.filter((job) => {
-    const tags: string[] = [job.role, ...job.languages, ...job.tools];
+    const tags: string[] = [job.role, job.level, ...job.languages, ...job.tools];
     return filters.every((filter) => tags.includes(filter));
   });
 };
